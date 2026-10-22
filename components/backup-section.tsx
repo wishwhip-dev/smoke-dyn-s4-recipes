@@ -7,7 +7,7 @@
  * Loading a backup merges — it adds or updates matching recipes and never clears what is here —
  * so there is no destructive path on this screen to confirm.
  */
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { Download, Upload } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -18,19 +18,16 @@ import { useDatabaseTransfer } from "@/lib/storage/react";
 export function BackupSection() {
   const { state, exportToFile, importFromFile } = useDatabaseTransfer(database);
   const fileInput = useRef<HTMLInputElement>(null);
-  const [importing, setImporting] = useState(false);
 
   const handleFile = async (file: File | undefined) => {
     if (!file) return;
-    setImporting(true);
     await importFromFile(file, "merge");
-    setImporting(false);
     // So picking the same file again still fires onChange.
     if (fileInput.current) fileInput.current.value = "";
   };
 
   const message =
-    state.kind === "working" || importing
+    state.kind === "working"
       ? "Working…"
       : state.kind === "imported"
         ? `Loaded ${state.result.rows} ${state.result.rows === 1 ? "recipe" : "recipes"} from the backup.`

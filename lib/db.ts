@@ -5,19 +5,35 @@
  * that describes the product: which tables exist, what is indexed, how the schema has changed over
  * time, and what a first visit starts with.
  *
- * **The schema below is an example and nobody has data in it.** If you are building this
- * application for the first time, replace the tables in version 1 with your own, rename the
- * database, and replace or delete the seed alongside them — do not add a version 2 that drops
- * `notes`. The "never edit a shipped version" rule in `docs/storage.md` binds from your first
- * deployment onward, not before it.
+ * This is the first release, so version 1 is the recipe box itself; there is no migration history
+ * to carry.
  */
 import { defineDatabase } from "@/lib/storage/database";
+import { SEED_RECIPES } from "@/lib/data/seed-recipes";
 
-export type Note = {
+/** The five categories a recipe can sit in. */
+export const CATEGORIES = ["Main", "Dessert", "Breakfast", "Side", "Soup"] as const;
+export type Category = (typeof CATEGORIES)[number];
+
+/** One line of an ingredient list: the quantity and the thing itself, as typed on the card. */
+export type Ingredient = {
+  /** e.g. "2 cups", "1 tbsp", "3" — kept as text so fractions and ranges survive. */
+  amount: string;
+  /** e.g. "flour", "cherries", "pitted". */
+  name: string;
+};
+
+export type Recipe = {
   id: string;
-  title: string;
-  body: string;
-  /** Epoch millis. Indexed, because the list is ordered by it. */
+  name: string;
+  category: Category;
+  /** Total time in minutes. */
+  timeMinutes: number;
+  servings: number;
+  ingredients: Ingredient[];
+  /** Ordered; step 1 is steps[0]. */
+  steps: string[];
+  /** Epoch millis. Indexed, because the list is ordered newest-first. */
   updatedAt: number;
 };
 
@@ -26,36 +42,20 @@ export function newId(): string {
   return globalThis.crypto?.randomUUID?.() ?? `${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
 }
 
-/** What a first visit opens to. An app that opens empty looks broken. */
-const SAMPLE_NOTES: Note[] = [
-  {
-    id: "sample-welcome",
-    title: "This note came with the app",
-    body: "It was written once, on your first visit. Delete it and it stays deleted — the seed does not refill a list you emptied on purpose.",
-    updatedAt: Date.now(),
-  },
-  {
-    id: "sample-storage",
-    title: "Everything here lives in this browser",
-    body: "No account, no sync, no other visitor can see it. Export to a file to carry it anywhere else.",
-    updatedAt: Date.now() - 60_000,
-  },
-];
-
-export const database = defineDatabase<{ notes: Note }>({
+export const database = defineDatabase<{ recipes: Recipe }>({
   // Part of the origin's storage identity. Renaming it does not migrate anything — it points the
   // application at a different, empty database and abandons the old one in place. That is exactly
   // what you want on a first build, and never what you want afterwards.
-  name: "starter-app",
+  name: "family-recipe-box",
   versions: [
-    // Only the primary key and the properties queried on. `title` and `body` are stored but never
-    // filtered or sorted by, so indexing them would cost writes and buy nothing.
-    { version: 1, stores: { notes: "id, updatedAt" } },
+    // Only the primary key and the properties queried on. The category filter is done in memory
+    // over the whole list (a recipe box is small), so only `updatedAt` is indexed.
+    { version: 1, stores: { recipes: "id, updatedAt" } },
   ],
   // Written once, inside `ready()`, in one transaction with its own marker. Do not hand-roll this:
   // no `meta` table, no flag, no promise to dedupe a double mount — see `docs/storage.md`.
   seed: {
-    tables: ["notes"],
-    run: async (db) => { await db.notes.bulkAdd(SAMPLE_NOTES); },
+    tables: ["recipes"],
+    run: async (db) => { await db.recipes.bulkAdd(SEED_RECIPES); },
   },
 });

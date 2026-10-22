@@ -213,9 +213,3 @@ export function RecipeBox() {
     </div>
   );
 }
-
-/** Kept out of the component body so the live-query hook sees a stable function. */
-async function listRecipesQuery() {
-  const { listRecipes } = await import("@/lib/data/recipes");
-  return listRecipes();
-}

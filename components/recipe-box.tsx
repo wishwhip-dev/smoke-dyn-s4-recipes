@@ -9,6 +9,7 @@ import { useMemo, useState } from "react";
 import { Plus, Search, X } from "lucide-react";
 import { toast } from "sonner";
 import { BackupSection } from "@/components/backup-section";
+import { PantrySuggest } from "@/components/pantry-suggest";
 import { RecipeCard } from "@/components/recipe-card";
 import { RecipeForm, type RecipeDraft } from "@/components/recipe-form";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";

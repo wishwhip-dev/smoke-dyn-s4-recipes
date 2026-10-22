@@ -24,16 +24,16 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Skeleton } from "@/components/ui/skeleton";
-import { CATEGORIES, database, type Category } from "@/lib/db";
-import { addRecipe } from "@/lib/data/recipes";
+import { CATEGORIES, database, type Category, type Recipe } from "@/lib/db";
+import { addRecipe, listRecipes } from "@/lib/data/recipes";
 import { matchRecipe, parseSearchTerms, type IngredientMatch } from "@/lib/recipes-search";
 import { useStorageStatus, useStoredQuery } from "@/lib/storage/react";
 
 type Filter = Category | "All";
-type Result = { recipe: Awaited<ReturnType<typeof import("@/lib/data/recipes").listRecipes>>[number]; match?: IngredientMatch };
+type Result = { recipe: Recipe; match?: IngredientMatch };
 
 export function RecipeBox() {
-  const { data, isLoading } = useStoredQuery(database, listRecipesQuery);
+  const { data, isLoading } = useStoredQuery(database, listRecipes);
   const storageStatus = useStorageStatus(database);
   const [searchText, setSearchText] = useState("");
   const [filter, setFilter] = useState<Filter>("All");

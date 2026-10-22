@@ -15,6 +15,7 @@
         "docs/storage.md",
         "docs/notifications.md",
         "docs/share.md",
+        "docs/ai.md",
         "docs/sync.md",
         "docs/home-screen.md",
         "docs/visits.md",
@@ -36,6 +37,7 @@
       "docs": "docs/storage.md"
     },
     "share": true,
+    "ai": true,
     "sync": true,
     "install": true
   },
@@ -51,14 +53,16 @@
       "sync",
       "home-screen",
       "visits",
-      "attribution"
+      "attribution",
+      "ai"
     ],
     "supervisorRevision": "templates-2da22b4141cdb4ea",
     "storageVersion": "0.4.0",
     "files": {
       ".gitignore": "73ec7442d8e321919c3d0eb5a2fc8f11fbcbf1096ec76b3f9f5e54f6a19a198a",
-      "AGENTS.md": "ba5597a4b67e4ee229ce3e96031ce1f52e36344ca7c91f849b5260ae703a743a",
+      "AGENTS.md": "e9f27c99431fd1573cd9e26f883d9d1852a4afd9acb84a1f3471f815fb411c97",
       "README.md": "abd65330717b885189b26df1289d023338fb78647b72494612edbcd30bf5fe7e",
+      "app/api/ai/route.ts": "b348bd3c05a266d18dad14ddd7085f8b9779362c3e6a2af77ec8c46d29b76e99",
       "app/apple-icon.tsx": "a2197fa82db26e6f99b3542ad4cf0edd07401a838937b0fa2514ff4306ea6f88",
       "app/globals.css": "67a04f644d8787c1521d6977e303e4abb76508f4e6e8acba8dd3021f310cbe6b",
       "app/icon-art.tsx": "90c17b0296949e98ffb0bcd84bf98c5a2acf7e1908b76184f10589935b110db2",
@@ -89,6 +93,7 @@
       "components/ui/tabs.tsx": "2d8e74c6f76bc24c60d247e564fa881361edd97561edfcca506149f64d32f7d7",
       "components/ui/textarea.tsx": "ec7c92aaed80f6923a7caa4bfe4eead395b50a7001504fd7fbb0b9381804dae9",
       "components/visit-beacon.tsx": "97937b7fff1cad387b5ff2a0066195f090b90063638715fc86f4eb0c656a3156",
+      "docs/ai.md": "1ef4cffebada08ec7818c6aa23fb7d91066f403b6577efb028f5ff896427cb64",
       "docs/attribution.md": "dc23d7ac4a2c0ae0c922fd55bc8808dc3f74109d46dfb55f1252daafa37bb23b",
       "docs/components.md": "0e50d0ac0530452fe688e6035fc409c59b82ca2af23da3277988d2e42087930c",
       "docs/home-screen.md": "1af011d1360306cba03d81055afc4f9024b73e91d8b036762a1d49835d1087b2",
@@ -98,6 +103,8 @@
       "docs/sync.md": "3ca251c2e04cb3c55df9369df4029fe5d3e08fccdc6c5c24d7672381193d97a0",
       "docs/visits.md": "4ba8f1820019b88e50ed9a48db919fd0c81ebb3a63de6c5ce87cfd93044cb6f3",
       "eslint.config.mjs": "3e25d6bb4ef955923c916176f2b09b694769ff7623cd3d271142caf1feb6a756",
+      "lib/ai-instructions.ts": "2091277b21292562e541fe6503366d87e985462b4d7d23f521944f638e759d99",
+      "lib/ai.ts": "c6afe07441d8b9354f19c5cd7dc9739d3a2dfbefebae1c9e44766c601664217f",
       "lib/db.ts": "ba028216e720203e3d921d56db2cb6fb6fffdbdc0f4d03c7ce4c839dc2719720",
       "lib/home-screen.ts": "110ae26404a8195554a4b40f46d31eb2ae722abfe119bab9738d6d3063d1ec1f",
       "lib/share.ts": "deb80a5ca96fd1f24ac5dbb71755577c267bd6f1dca2b72397757edd03790020",

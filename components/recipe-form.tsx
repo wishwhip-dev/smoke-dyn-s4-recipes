@@ -108,7 +108,7 @@ export function RecipeForm({
       next.steps = "Each step needs text — or remove the empty ones.";
     }
     setErrors(next);
-    if (Object.keys(next).length > 0) return;
+    if (Object.keys(next).length > 0 || parsedServings === null || parsedTime === null) return;
 
     const draft: RecipeDraft = {
       name: name.trim(),

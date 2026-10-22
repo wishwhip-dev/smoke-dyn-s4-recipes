@@ -101,11 +101,11 @@ export function RecipeForm({
     if (parsedServings === null) next.servings = "How many servings? A whole number above 0.";
     const parsedTime = parseCount(time);
     if (parsedTime === null) next.time = "Total time in minutes, above 0.";
-    if (ingredientRows.some((row) => !row.amount.trim() || !row.name.trim())) {
-      next.ingredients = "Every ingredient needs an amount and a name.";
+    if (ingredientRows.length === 0 || ingredientRows.some((row) => !row.amount.trim() || !row.name.trim())) {
+      next.ingredients = "Every ingredient needs an amount and a name — the list can't be empty.";
     }
-    if (stepRows.some((row) => !row.text.trim())) {
-      next.steps = "Each step needs text — or remove the empty ones.";
+    if (stepRows.length === 0 || stepRows.some((row) => !row.text.trim())) {
+      next.steps = "Each step needs text, or remove the empty ones — the list can't be empty.";
     }
     setErrors(next);
     if (Object.keys(next).length > 0 || parsedServings === null || parsedTime === null) return;

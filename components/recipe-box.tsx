@@ -195,6 +195,8 @@ export function RecipeBox() {
         </div>
       )}
 
+      {!isLoading && <PantrySuggest recipes={recipes} />}
+
       {!isLoading && recipes.length > 0 && <BackupSection />}
 
       <Dialog open={addOpen} onOpenChange={setAddOpen}>

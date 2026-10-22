@@ -57,7 +57,7 @@ export const SEED_RECIPES: Recipe[] = [
       { amount: "3/4 cup", name: "brown sugar (for the topping)" },
       { amount: "1/2 cup", name: "cold butter, cubed" },
       { amount: "1/2 tsp", name: "salt" },
-      { amount: "", name: "vanilla ice cream, to serve" },
+      { amount: "4 scoops", name: "vanilla ice cream, to serve" },
     ],
     steps: [
       "Heat the oven to 375°F / 190°C and butter a 9×9-inch baking dish.",
@@ -142,7 +142,7 @@ export const SEED_RECIPES: Recipe[] = [
       { amount: "12", name: "lasagna noodles" },
       { amount: "3 cups", name: "shredded mozzarella" },
       { amount: "1/2 cup", name: "grated Parmesan" },
-      { amount: "", name: "fresh basil, to serve" },
+      { amount: "1 handful", name: "fresh basil, to serve" },
     ],
     steps: [
       "Brown the beef in a wide pan over medium-high heat, breaking it up, about 8 minutes. Scoop out excess fat.",
@@ -201,7 +201,7 @@ export const SEED_RECIPES: Recipe[] = [
       { amount: "3 tbsp", name: "butter, melted" },
       { amount: "1 tsp", name: "vanilla extract" },
       { amount: "1/4 cup", name: "butter, for the pan" },
-      { amount: "", name: "maple syrup, to serve" },
+      { amount: "1/2 cup", name: "maple syrup, to serve" },
     ],
     steps: [
       "Whisk the flour, sugar, baking powder, baking soda and salt in a big bowl.",
@@ -253,7 +253,7 @@ export const SEED_RECIPES: Recipe[] = [
       { amount: "4 tbsp", name: "butter" },
       { amount: "1/2 cup", name: "sour cream" },
       { amount: "1 tsp", name: "salt" },
-      { amount: "", name: "black pepper, to taste" },
+      { amount: "1/2 tsp", name: "black pepper" },
       { amount: "2 tbsp", name: "chopped chives" },
     ],
     steps: [
@@ -278,7 +278,7 @@ export const SEED_RECIPES: Recipe[] = [
       { amount: "3", name: "garlic cloves, minced" },
       { amount: "1 tbsp", name: "balsamic vinegar" },
       { amount: "1/2 tsp", name: "salt" },
-      { amount: "", name: "black pepper, to taste" },
+      { amount: "1/2 tsp", name: "black pepper" },
       { amount: "1/4 cup", name: "toasted pecans, chopped" },
     ],
     steps: [

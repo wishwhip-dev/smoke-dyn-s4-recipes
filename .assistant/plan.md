@@ -1,0 +1,19 @@
+# Plan
+
+Goal: A recipe box: keep my family recipes with ingredients and steps, and find one by ingredient.
+
+1. The home page shows the recipe box as a grid or list of recipe cards, each with the recipe's name, category (Main, Dessert, Breakfast, Side, Soup), total time and servings; the starter collection contains at least 12 seeded recipes covering every category, each with a realistic ingredient list (6–14 ingredients with amounts) and 4–10 numbered steps, kept in a data module under lib/data separate from the components that render them; the page also states how many recipes the box holds (for example '12 recipes').
+2. Clicking a recipe card opens the recipe itself, showing its ingredients each with an amount (for example '2 cups flour'), its numbered steps, and its category, time and servings.
+3. Opening a recipe's URL directly (pasted or bookmarked) renders that recipe, and an unknown recipe id shows a 'recipe not found' message with a link back to the box instead of an error or blank page.
+4. A search box on the home page accepts one or more ingredients typed separated by commas; matching is case-insensitive and matches partial words (typing 'cherr' finds a recipe listing 'cherries'), extra commas and blank terms are ignored, and as you type the list narrows to recipes containing those ingredients; each result shows how many of the typed ingredients it contains (for example '4 of 5'), with recipes missing an ingredient still shown but marked with which ones are missing.
+5. A category filter (chips or a select) narrows the list to one category or All, each category chip shows how many recipes it holds, and the filter combines correctly with the ingredient search (a recipe must satisfy both to appear).
+6. Pressing 'Add recipe' on the home page opens a form with labelled fields for name, category, servings, time, ingredients (one row per ingredient with amount and name, rows can be added and removed) and steps (one field per step, rows can be added and removed); submitting with 'Save recipe' closes the form and the new recipe appears in the list immediately; submitting with the name, an ingredient or a step missing shows an inline message on that field and saves nothing.
+7. An existing recipe can be edited: the recipe view has an Edit button that opens the same form filled in with the recipe's current values, and saving updates the card and detail; opening the edit form and leaving without saving leaves the recipe unchanged.
+8. The recipe view has a Delete button labelled 'Delete recipe' that asks for confirmation; confirming removes it from the list for good and returns to the home page with that card gone, while cancelling leaves everything as it was.
+9. After adding or editing a recipe and reloading the page, every recipe including its ingredients and steps is still there, read back from the browser database.
+10. If the search matches nothing, the page shows a clear message such as 'No recipes use those ingredients' with a button to clear the search; a brand-new empty box (all recipes deleted) shows a friendly empty state with the Add recipe button.
+11. Each recipe detail shows a Share button that turns the recipe into a shareable image (name, ingredients and steps) and offers to share it, save it, or copy a link, only when pressed.
+12. The whole app works at phone width: cards stack in one column, the form fields and search box are usable on a small screen, and every control is at least 32px tall; adding a recipe also works from the keyboard alone (tab through fields, Enter or the Save button submits).
+13. The app's name, title and description in app/identity.ts are updated to the recipe box (for example 'Family Recipe Box'), so the browser tab title and share previews match the app.
+
+These are the outcomes this task is judged against.

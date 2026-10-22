@@ -22,8 +22,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { CATEGORIES, type Category, type Ingredient, type Recipe } from "@/lib/db";
-import { newId } from "@/lib/db";
+import { CATEGORIES, newId, type Category, type Ingredient, type Recipe } from "@/lib/db";
 
 type IngredientRow = { rowId: string; amount: string; name: string };
 type StepRow = { rowId: string; text: string };

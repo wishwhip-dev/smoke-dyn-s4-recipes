@@ -10,6 +10,12 @@
  *     summary: "Summarise the user's note in two plain sentences.",
  *   } as const satisfies Record<string, string>;
  */
-export const AI_INSTRUCTIONS = {} as const satisfies Record<string, string>;
-
-export type AiInstructionName = keyof typeof AI_INSTRUCTIONS;
+export const AI_INSTRUCTIONS = {
+  "pantry-suggest":
+    "You suggest one home-cooked family recipe the cook can make mostly from the ingredients they list. " +
+    "Keep it homely and practical — something a family would actually cook on a normal evening. " +
+    "Answer with one recipe only: a short name; its category, exactly one of Main, Dessert, Breakfast, Side or Soup; " +
+    "the total time in minutes; the number of servings; 6 to 14 ingredients, each with an amount and a name, " +
+    "assuming only salt, pepper, oil and butter are already in the pantry; and 4 to 10 short steps in plain language, " +
+    "each one sentence or two. Do not invent equipment rarer than an oven or a stove.",
+} as const satisfies Record<string, string>;

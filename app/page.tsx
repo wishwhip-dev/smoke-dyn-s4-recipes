@@ -1,20 +1,17 @@
-import { Button } from "@/components/ui/button";
+import { RecipeBox } from "@/components/recipe-box";
+import { identity } from "./identity";
 
 export default function Home() {
   return (
-    <main className="mx-auto flex min-h-dvh max-w-2xl flex-col justify-center gap-4 px-6 py-16">
-      <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
-        Ready to build
-      </p>
-      <h1 className="text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
-        Describe this application in the task goal.
-      </h1>
-      <p className="text-lg text-muted-foreground">
-        The coding agent will replace this reviewed starter with the requested product.
-      </p>
-      <div className="mt-2 flex gap-2">
-        <Button>Web app foundation ready</Button>
-      </div>
+    <main className="mx-auto w-full max-w-5xl px-4 pb-16 pt-8 sm:px-6 sm:pt-12">
+      <header className="mb-8">
+        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">{identity.name}</h1>
+        <p className="mt-2 max-w-prose text-muted-foreground">
+          The family recipes, on one shelf. Look one up by whatever is already in the kitchen — type
+          an ingredient, or two, or five.
+        </p>
+      </header>
+      <RecipeBox />
     </main>
   );
 }

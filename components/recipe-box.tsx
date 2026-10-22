@@ -39,7 +39,7 @@ export function RecipeBox() {
   const [filter, setFilter] = useState<Filter>("All");
   const [addOpen, setAddOpen] = useState(false);
 
-  const recipes = data ?? [];
+  const recipes = useMemo(() => data ?? [], [data]);
   const terms = useMemo(() => parseSearchTerms(searchText), [searchText]);
 
   const counts = useMemo(() => {

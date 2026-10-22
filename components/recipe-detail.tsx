@@ -23,7 +23,7 @@ import {
 } from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
-import { database, type Recipe } from "@/lib/db";
+import { database } from "@/lib/db";
 import { deleteRecipe, getRecipe, updateRecipe } from "@/lib/data/recipes";
 import { formatTime } from "@/lib/recipes-search";
 import { renderShareCard } from "@/lib/share";

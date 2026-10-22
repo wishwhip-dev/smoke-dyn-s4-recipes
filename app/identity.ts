@@ -7,8 +7,8 @@
  * paper (app/icon-art.tsx). Set it to the owner's colour, as `#rrggbb`, only when they ask for one.
  */
 export const identity = {
-  name: "Recipe box",
-  description: "A recipe box: keep my family recipes with ingredients and steps, and find one by ingredient.",
+  name: "Recipe Box",
+  description: "Keep the family's recipes — ingredients, steps, time — and find one by whatever is already in the kitchen.",
   accent: "#1c1915",
   initial: "R",
 } as const;
